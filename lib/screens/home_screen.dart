@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: "Vertical List II Header",
                     numberOfChildren: 18,
                   ),
-                  SizedBox(height: mediaQuery.size.height*0.125,),
+                  SizedBox(height: mediaQuery.orientation==Orientation.portrait?mediaQuery.size.height*0.125:mediaQuery.size.height*0.25,),
                 ],
               ),
             ),
@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 visible: _scrollController.hasClients? (_scrollController.position.pixels>mediaQuery.size.height*0.3):false,
                 child: SizedBox(
                   width: double.infinity,
-                  height: mediaQuery.size.height*0.1,
+                  height: mediaQuery.orientation==Orientation.portrait?mediaQuery.size.height*0.1:mediaQuery.size.height*0.2,
                   child: ElevatedButton(
                     onPressed: _scrollToTop,
                     child: const Text("Scroll to Top"),

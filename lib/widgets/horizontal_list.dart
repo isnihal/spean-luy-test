@@ -25,7 +25,7 @@ class HorizontalList extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8,),
           child: SizedBox(
-            height: mediaQuery.size.height * 0.14,
+            height: mediaQuery.orientation==Orientation.portrait?mediaQuery.size.height * 0.14:mediaQuery.size.height * 0.28,
             width: double.infinity,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,

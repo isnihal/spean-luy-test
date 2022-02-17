@@ -12,7 +12,7 @@ class VerticalListItem extends StatelessWidget {
     var mediaQuery = MediaQuery.of(context);
 
     return Container(
-      height: mediaQuery.size.height * 0.1,
+      height: mediaQuery.orientation==Orientation.portrait? mediaQuery.size.height * 0.1:mediaQuery.size.height * 0.2,
       width: double.infinity,
       color: randomColor,
       margin: const EdgeInsets.only(bottom: 16),
