@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spean_luy_test/widgets/horizontal_list_item.dart';
+
+import '../widgets/horizontal_list_item.dart';
 
 class HorizontalList extends StatelessWidget {
 

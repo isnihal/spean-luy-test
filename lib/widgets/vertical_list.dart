@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spean_luy_test/widgets/vertical_list_item.dart';
+
+import '../widgets/vertical_list_item.dart';
 
 class VerticalList extends StatelessWidget {
 

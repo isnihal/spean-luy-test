@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:spean_luy_test/widgets/horizontal_list.dart';
-import 'package:spean_luy_test/widgets/vertical_list.dart';
+
+import '../widgets/horizontal_list.dart';
+import '../widgets/vertical_list.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Test"),
+        title: const Text("Flutter Test"),
       ),
       body: SizedBox.expand(
         child: Stack(
