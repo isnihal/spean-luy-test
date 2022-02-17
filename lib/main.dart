@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           headline6: TextStyle(color: Colors.black87)
         )
       ),
-      home: HomeScreen()
+      home: const HomeScreen()
     );
   }
 }

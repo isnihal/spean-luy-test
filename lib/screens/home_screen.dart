@@ -2,12 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:spean_luy_test/widgets/horizontal_list.dart';
 import 'package:spean_luy_test/widgets/vertical_list.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
 
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
 
   //Scroll controller
-  final ScrollController _scrollController = ScrollController();
+  late ScrollController _scrollController;
+
+  void _scrollControlListener(){
+    if(_scrollController.hasClients){
+      setState(() {
+
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollControlListener);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.removeListener(_scrollControlListener);
+    _scrollController.dispose();
+  }
 
   void _scrollToTop(){
     _scrollController.animateTo(
@@ -53,12 +81,15 @@ class HomeScreen extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: SizedBox(
-                width: double.infinity,
-                height: mediaQuery.size.height*0.1,
-                child: ElevatedButton(
-                  onPressed: _scrollToTop,
-                  child: const Text("Scroll to Top"),
+              child: Visibility(
+                visible: _scrollController.hasClients? (_scrollController.position.pixels>mediaQuery.size.height*0.3):false,
+                child: SizedBox(
+                  width: double.infinity,
+                  height: mediaQuery.size.height*0.1,
+                  child: ElevatedButton(
+                    onPressed: _scrollToTop,
+                    child: const Text("Scroll to Top"),
+                  ),
                 ),
               ),
             ),
