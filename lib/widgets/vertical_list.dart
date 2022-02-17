@@ -10,20 +10,23 @@ class VerticalList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title,style: Theme.of(context).textTheme.headline6,),
-        const SizedBox(height: 16,),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: numberOfChildren,
-            itemBuilder: (ctx,index)=> const VerticalListItem(),
-          ),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0,top: 16,right: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title,style: Theme.of(context).textTheme.headline6,),
+          const SizedBox(height: 16,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8,),
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: numberOfChildren,
+              itemBuilder: (ctx,index)=> const VerticalListItem(),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
